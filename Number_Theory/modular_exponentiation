@@ -1,0 +1,16 @@
+//Modular exponentiation
+//a^n % modulo
+int modular_exponentiation(int base,int pow,int modulo){
+    int res=1;
+    while(pow){
+        if(pow%2){
+            res=(res*base)%modulo;
+            pow--;
+        }
+        else{
+            base=(base*base)%modulo;
+            pow/=2;
+        }
+        return res;
+    } 
+}
