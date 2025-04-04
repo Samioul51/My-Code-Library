@@ -1,0 +1,16 @@
+//Binary Exponentiation O()
+//to calculate a^n
+int binary_exponentiation(int base,int pow){
+    int res=1;
+    while(pow){
+    if(pow%2){              // res base power
+        res*=base;
+        pow--;
+    }
+    else{
+        base*=base;
+        pow/=2;
+    }
+    }
+    return res;
+}
