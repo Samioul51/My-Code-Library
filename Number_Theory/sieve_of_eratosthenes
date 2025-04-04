@@ -1,0 +1,20 @@
+const int N=1000001;
+
+int isPrime[N];
+
+void seive(){
+   for(int i=2;i<N;i++) isPrime[i]=1;
+    
+   isPrime[0]=isPrime[1]=0;
+  
+    for(int i=2;i*i<N;i++){
+        if(isPrime[i]){
+            for(ll j=i*i;j<N;j+=i){
+                isPrime[j]=0;
+            }
+        }
+    }
+}
+
+//Prime--->marked with 1 in the array
+//Non Prime--->marked with 0 in the array
