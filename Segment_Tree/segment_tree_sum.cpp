@@ -1,8 +1,5 @@
-#include<bits/stdc++.h>
-using namespace std;
-
 const int N=1e5+5;
-long long a[N],t[4*N];
+ll a[N],t[4*N];
 
 void build(int n,int b,int e){
     if(b==e){
@@ -28,7 +25,7 @@ void update(int n,int b,int e,int i,int v){
     t[n]=t[l]+t[r];
 }
 
-long long query(int n,int b,int e,int i,int j){
+ll query(int n,int b,int e,int i,int j){
     if(e<i or j<b)
         return 0;
     if(b>=i and e<=j)
@@ -37,7 +34,7 @@ long long query(int n,int b,int e,int i,int j){
     return query(l,b,mid,i,j)+query(r,mid+1,e,i,j);
 }
 
-int main(){
+void SIR(){
     int n,m;
     cin>>n>>m;
     for(int i=1;i<=n;i++)cin>>a[i];
@@ -59,5 +56,4 @@ int main(){
             cout<<res<<"\n";
         }
     }
-    return 0;
 }
