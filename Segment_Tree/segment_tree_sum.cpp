@@ -12,32 +12,32 @@ void build(int n,int b,int e){
     t[n]=t[l]+t[r];
 }
 
-void update(int n,int b,int e,int i,int v){
-    if(i<b or i>e)
+void update(int n,int b,int e,int x,int v){
+    if(x<b or x>e)
         return;
     if(b==e){
         t[n]=v;
         return;
     }
     int mid=(b+e)/2,l=2*n,r=2*n+1;
-    update(l,b,mid,i,v);
-    update(r,mid+1,e,i,v);
+    update(l,b,mid,x,v);
+    update(r,mid+1,e,x,v);
     t[n]=t[l]+t[r];
 }
 
-ll query(int n,int b,int e,int i,int j){
-    if(e<i or j<b)
+ll query(int n,int b,int e,int x,int y){
+    if(e<x or y<b)
         return 0;
-    if(b>=i and e<=j)
+    if(b>=x and e<=y)
         return t[n];
     int mid=(b+e)/2,l=2*n,r=2*n+1;
-    return query(l,b,mid,i,j)+query(r,mid+1,e,i,j);
+    return query(l,b,mid,x,y)+query(r,mid+1,e,x,y);
 }
 
 void SIR(){
     int n,m;
     cin>>n>>m;
-    for(int i=1;i<=n;i++)cin>>a[i];
+    cf(i,1,n)cin>>a[i];
     build(1,1,n);
     while(m--){
         int t;
